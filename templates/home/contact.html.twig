@@ -1,0 +1,37 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Contact{% endblock %}
+
+{% block body %}
+
+<h1>Contact</h1>
+    <div>
+        <form method="post">
+            <div class="form-group">
+                <label for="exampleInputText">Nom :</label>
+                <input type="text" name="name" class="form-control 
+                {% if errors.name is defined %} is-invalid {% endif %}" 
+                value="{{ formData.name }}" id="exampleInputText">
+                {% if errors.name is defined %}
+                <div class="invalid-feedback">
+                {{ messages.name }}
+                </div>
+                {% endif %}
+            </div>
+
+            <div class="form-group">
+                <label for="exampleInputNumber">Message :</label>
+                <input type="number" name="message" class="form-control 
+                {% if errors.message is defined %} is-invalid {% endif %}" 
+                value="{{ formData.message }}" id="exampleInputNumber">
+                {% if errors.message is defined %}
+                <div class="invalid-feedback">
+                {{ messages.message }}
+                </div>
+                {% endif %}
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+    </div>
+
+{% endblock %}
